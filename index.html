@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROS2 Web Control</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/roslib/build/roslib.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Control Huybot</h1>
+
+        <div class="settings">
+            <div class="coolinput">
+                <label for="wsUrl" class="text">WebSocket URL:</label>
+                <input type="text" id="wsUrl" placeholder="ws://localhost" name="wsUrl" class="input"
+                    value="localhost">
+            </div>
+            <div class="coolinput">
+                <label for="Port" class="text">Port:</label>
+                <input type="text" id="Port" placeholder="9090" name="Port" class="input"
+                    value="9090">
+            </div>
+            <button id="connectBtn" class="not-connected">Connect</button>
+            <div class="coolinput">
+                <label for="topic" class="text">Topic Name:</label>
+                <input type="text" id="topic" placeholder="Enter topic name" value="/cmd_vel" name="topic" class="input">
+            </div>
+            <div class="coolinput">
+                <label for="frequency" class="text">Publication Frequency:</label>
+                <input type="number" id="frequency" placeholder="Enter frequency (Hz)" value="30" name="frequency" class="input">
+            </div>
+
+            <div class="checkbox-wrapper-46">
+                <input type="checkbox" id="stamped" class="inp-cbx" />
+                <label for="stamped" class="cbx"><span>
+                        <svg viewBox="0 0 12 10" height="10px" width="12px">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg></span><span>Stamped</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="sliders-setting">
+            <label for="linearSpeed">Linear Speed: <span id="linearValue">0.15</span></label>
+            <input type="range" id="linearSpeed" min="0" max="1" step="0.01" value="0.15">
+            <label for="angularSpeed">Angular Speed: <span id="angularValue">0.5</span></label>
+            <input type="range" id="angularSpeed" min="0" max="1" step="0.01" value="0.5">
+        </div>
+
+        <div class="control-buttons">
+            <button id="btn-forward-left">&#8598;</button>
+            <button id="btn-forward">&#8593;</button>
+            <button id="btn-forward-right">&#8599;</button>
+            <button id="btn-left">&#8592;</button>
+            <button id="btn-stop">Stop</button>
+            <button id="btn-right">&#8594;</button>
+            <button id="btn-backward-left">&#8601;</button>
+            <button id="btn-backward">&#8595;</button>
+            <button id="btn-backward-right">&#8600;</button>
+        </div>
+    </div>
+
+    <!-- Log area -->
+    <div class="card">
+        <div class="tools">
+            <div class="circle">
+                <span class="red box"></span>
+            </div>
+            <div class="circle">
+                <span class="yellow box"></span>
+            </div>
+            <div class="circle">
+                <span class="green box"></span>
+            </div>
+            <span class="title_card">ROS2 LOG</span>
+            <span class="title_card icon">&#11167;</span>
+
+        </div>
+
+        <div class="card__content" id="log">
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

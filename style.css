@@ -1,0 +1,367 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.container {
+    height: 100vh;
+    width: 600px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.settings {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    justify-content: space-between;
+}
+.sliders-setting{
+    text-align: left;
+}
+
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input[type="range"] { 
+    margin: auto;
+    margin-bottom: 30px;
+    -webkit-appearance: none;
+    /* position: relative; */
+    overflow: hidden;
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0; /* iOS */
+}
+
+::-webkit-slider-runnable-track {
+    background: #ddd;
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ * 2. Shadow is negative the full width of the input and has a spread 
+ *    of the width of the input.
+ */
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; /* 1 */
+    height: 30px;
+    background: #fff;
+    box-shadow: -300px 0 0 300px dodgerblue; /* 2 */
+    border: 2px solid #999; /* 1 */
+}
+
+::-moz-range-track {
+    height: 40px;
+    background: #ddd;
+}
+
+::-moz-range-thumb {
+    background: #fff;
+    height: 40px;
+    width: 20px; /* 1 */
+    border: 3px solid #999; /* 1 */
+    border-radius: 0 !important;
+    box-shadow: -200px 0 0 200px dodgerblue;
+    box-sizing: border-box;
+}
+
+::-ms-fill-lower { 
+    background: dodgerblue;
+}
+
+::-ms-thumb { 
+    background: #fff;
+    border: 2px solid #999; /* 1 */
+    height: 40px;
+    width: 20px; /* 1 */
+    box-sizing: border-box;
+}
+
+::-ms-ticks-after { 
+    display: none; 
+}
+
+::-ms-ticks-before { 
+    display: none; 
+}
+
+::-ms-track { 
+    background: #ddd;
+    color: transparent;
+    height: 40px;
+    border: none;
+}
+
+::-ms-tooltip { 
+    display: none;
+}
+
+#connectBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+#connectBtn.connected {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+#connectBtn.not-connected {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.control-buttons {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    width: max-content;
+}
+
+.control-buttons button {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.control-buttons button:hover {
+    background-color: #0056b3;
+}
+
+#btn-stop {
+    background-color: #dc3545;
+}
+
+#btn-stop:hover {
+    background-color: #c82333;
+}
+
+.coolinput {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: static;
+    max-width: 240px;
+}
+
+.coolinput label.text {
+    font-size: 0.75rem;
+    color: #818CF8;
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    background: #fff;
+    width: fit-content;
+}
+
+.coolinput input[type=text].input,
+.coolinput input[type=number].input {
+    padding: 11px 10px;
+    font-size: 0.75rem;
+    border: 2px #818CF8 solid;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.coolinput input[type=text].input:focus,
+.coolinput input[type=number].input:focus {
+    outline: none;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    margin: 0 auto;
+    background-color: #011522;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transition: ease-in-out 0.5s all;
+}
+.card__content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card__content::-webkit-scrollbar-thumb {
+    background-color: #03385b;
+    border-radius: 10px;
+}
+
+.card__content::-webkit-scrollbar-track {
+    background: #333; /* Màu nền của track */
+}
+.tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    cursor: pointer;
+}
+
+.title_card {
+    margin-left: 100px;
+    font-size: 0.8rem;
+    color: #00ca4e;
+}
+.icon {
+    margin-top: -8px;
+    margin-left: 140px;
+    font-size: 1rem;
+    transition: ease-in-out 0.5s all;
+}
+
+.circle {
+    padding: 0 4px;
+}
+
+.box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ff605c;
+}
+
+.yellow {
+    background-color: #ffbd44;
+}
+
+.green {
+    background-color: #00ca4e;
+}
+
+.card__content {
+    margin-left: 14px;
+    color: #00ca4e;
+    text-align: left;
+    overflow-y: auto;
+    height: 255px;
+    font-size: 0.8rem;
+    margin-bottom: 100px;
+}
+.checkbox-wrapper-46{
+    margin-top: 22px;
+}
+.checkbox-wrapper-46 input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+}
+
+.checkbox-wrapper-46 .cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.checkbox-wrapper-46 .cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-46 .cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #9098a9;
+    transition: all 0.2s ease;
+}
+
+.checkbox-wrapper-46 .cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-46 .cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #007bff;
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+}
+
+.checkbox-wrapper-46 .cbx span:last-child {
+    padding-left: 8px;
+}
+
+.checkbox-wrapper-46 .cbx:hover span:first-child {
+    border-color: #007bff;
+}
+
+.checkbox-wrapper-46 .inp-cbx:checked+.cbx span:first-child {
+    background: #007bff;
+    border-color: #007bff;
+    animation: wave-46 0.4s ease;
+}
+
+.checkbox-wrapper-46 .inp-cbx:checked+.cbx span:first-child svg {
+    stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper-46 .inp-cbx:checked+.cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+@keyframes wave-46 {
+    50% {
+        transform: scale(0.9);
+    }
+}
